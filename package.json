@@ -1,0 +1,33 @@
+{
+  "name": "react-userinfo",
+  "version": "1.0.0",
+  "description": "A lightweight package is designed for React applications, providing convenient functions to generate random user data like usernames, passwords, and profile pictures. Streamline your development and testing workflows with realistic placeholder data.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/Gazi2050/react-userInfo",
+  "repository": {
+    "url": "https://github.com/Gazi2050/react-userInfo"
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "react",
+    "profile-generator",
+    "password-generator",
+    "user",
+    "generator",
+    "frontend"
+  ],
+  "author": "gazi2050",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
+  }
+}
