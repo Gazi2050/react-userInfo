@@ -27,8 +27,33 @@ import { generateUserName, generatePassword, generateProfilePic } from 'user-dat
 To generate a username, call the `generateUserName` function:
 
 ```javascript
-const username = generateUserName();
-console.log("Username:", username);
+import { generateProfilePic } from 'react-userinfo';
+import { useState } from 'react';
+// Example usage in a React component
+
+function App() {
+const [profilePicUrl, setProfilePicUrl] = useState('');
+
+function handleGenerateProfilePic(e) {
+  e.preventDefault();
+  setProfilePicUrl(generateProfilePic());
+}
+
+return(
+    <div className="w-full mt-4">
+              <h1 className="text-yellow-600 font-semibold">Generate ProfilePic :</h1>
+              <div className="avatar flex justify-center">
+                <div className="w-24 rounded-full bg-slate-700 border-2 border-yellow-600">
+                  <img src={profilePicUrl ? profilePicUrl : img} />
+                </div>
+              </div>
+              <div className="flex justify-center items-center">
+                <button className="btn btn-outline btn-sm btn-warning mt-2" onClick={handleGenerateProfilePic}>Generate</button>
+              </div>
+            </div>
+            )}
+
+export default App;
 ```
 
 #### Generate Password
@@ -88,8 +113,6 @@ console.log("Profile Picture:", profilePic);
 ## License
 
 This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
 
 ## Contributing
 
