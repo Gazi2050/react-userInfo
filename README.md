@@ -10,6 +10,30 @@ You can install this package via npm:
 npm install react-userinfo
 ```
 
+## Demo
+[Demo1](https://react-userinfo-demo1.surge.sh)
+
+## Function Details
+
+### `generateUserName()`
+
+Generates a random username using a combination of adjectives, nouns, and a random number.
+
+- **Returns**: `string` - The generated username.
+
+### `generatePassword()`
+
+Generates a random password with a length of 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character.
+
+- **Returns**: `string` - The generated password.
+
+### `generateProfilePic()`
+
+Generates a random profile picture URL with colorful geometric shapes.
+
+- **Returns**: `string` - The URL of the generated profile picture.
+
+
 ## Usage
 
 ### Importing Functions
@@ -26,88 +50,107 @@ import { generateUserName, generatePassword, generateProfilePic } from 'user-dat
 
 To generate a username, call the `generateUserName` function:
 
-```javascript
-import { generateProfilePic } from 'react-userinfo';
-import { useState } from 'react';
+```jsx
 // Example usage in a React component
 
-function App() {
-const [profilePicUrl, setProfilePicUrl] = useState('');
+import { generateUserName } from 'react-userinfo';
+import { useState } from 'react';
 
-function handleGenerateProfilePic(e) {
-  e.preventDefault();
-  setProfilePicUrl(generateProfilePic());
+function App() {
+  const [userName, setUserName] = useState('');
+
+  function handleGenerateUserName(e) {
+    e.preventDefault();
+    setUserName(generateUserName());
+  }
+
+  return (
+    <div>
+      <h1>Generate Username :</h1>
+      <input
+        type="text"
+        placeholder="username"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+      />
+      <button onClick={handleGenerateUserName}>Generate</button>
+    </div>
+  );
 }
 
-return(
-    <div className="w-full mt-4">
-              <h1 className="text-yellow-600 font-semibold">Generate ProfilePic :</h1>
-              <div className="avatar flex justify-center">
-                <div className="w-24 rounded-full bg-slate-700 border-2 border-yellow-600">
-                  <img src={profilePicUrl ? profilePicUrl : img} />
-                </div>
-              </div>
-              <div className="flex justify-center items-center">
-                <button className="btn btn-outline btn-sm btn-warning mt-2" onClick={handleGenerateProfilePic}>Generate</button>
-              </div>
-            </div>
-            )}
-
 export default App;
+
 ```
 
 #### Generate Password
 
 To generate a password, call the `generatePassword` function:
 
-```javascript
-const password = generatePassword();
-console.log("Password:", password);
+```jsx
+// Example usage in a React component
+
+import { generatePassword } from 'react-userinfo';
+import { useState } from 'react';
+
+function App() {
+  const [password, setPassword] = useState('');
+
+  function handleGeneratePassword(e) {
+    e.preventDefault();
+    setPassword(generatePassword());
+  }
+
+  return (
+    <div>
+      <h1>Generate Password :</h1>
+      <input
+        type='password'
+        placeholder="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleGeneratePassword}>Generate</button>
+    </div>
+  );
+}
+
+export default App;
+
 ```
 
 #### Generate Profile Picture
 
 To generate a profile picture URL, call the `generateProfilePic` function:
 
-```javascript
-const profilePic = generateProfilePic();
-console.log("Profile Picture:", profilePic);
-```
+```jsx
+// Example usage in a React component
 
-## Function Details
+import { generateProfilePic } from 'react-userinfo';
+import { useState } from 'react';
 
-### `generateUserName()`
+function App() {
+  const [profilePicUrl, setProfilePicUrl] = useState('');
 
-Generates a random username.
+  function handleGenerateProfilePic(e) {
+    e.preventDefault();
+    setProfilePicUrl(generateProfilePic());
+  }
 
-- **Returns**: `string` - The generated username.
+  return (
+    <div>
+      <h1>Generate Profile Picture :</h1>
+      <div>
+        <img src={profilePicUrl} alt="Profile" />
+      </div>
+      <div>
+        <button onClick={handleGenerateProfilePic}>Generate</button>
+      </div>
+    </div>
+  );
+}
 
-### `generatePassword()`
+export default App;
 
-Generates a random password.
-
-- **Returns**: `string` - The generated password.
-
-### `generateProfilePic()`
-
-Generates a random profile picture URL.
-
-- **Returns**: `string` - The URL of the generated profile picture.
-
-## Example
-
-Here's an example of generating user data:
-
-```javascript
-import { generateUserName, generatePassword, generateProfilePic } from 'user-data-generator-react';
-
-const username = generateUserName();
-const password = generatePassword();
-const profilePic = generateProfilePic();
-
-console.log("Username:", username);
-console.log("Password:", password);
-console.log("Profile Picture:", profilePic);
 ```
 
 ## License
